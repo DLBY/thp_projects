@@ -1,0 +1,7 @@
+
+if (<%= @email.read %>) {
+  document.getElementById('btn-read').innerHTML = "Marquer comme non-lu"
+  document.getElementById('<%= @email.id %>').classList.remove("list-group-item-dark")
+} else {
+  document.getElementById('btn-read').innerHTML = "Marquer comme lu"
+  document.getElementById('<%= @email.id %>').classList.add("list-group-item-light")}

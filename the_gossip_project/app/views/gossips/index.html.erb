@@ -1,0 +1,26 @@
+<div class ="index">
+<hr style="height:0.5px;border-width:0;margin:0;color:gray;background-color:white"> 
+<h2 class="text-center" style="margin-bottom:0;color:secondary">Bienvenue sur The Gossip Project ! <br/> Voici les derniers gossips</h2>
+<hr style="height:0.5px;border-width:0;margin:0;color:gray;background-color:white"> 
+<br/>
+
+  <div class="card-deck text-center justify-content-center ">
+    <div class="col-sm-4">
+        <% @gossips.each do |gossip| %>
+          <div class="card text-white  mb-4 border-right-0 border-left-0 mb-3 " >
+            <div class="card-header bg-dark text-warning ">
+
+              <%= gossip.user.first_name %> <%= gossip.user.last_name %>
+            </div>
+            <div class="card-body ">
+              Titre du gossip : 
+              <h5 class="card-title"><%= gossip.title %></h5>
+              <%= link_to 'Détail', gossip_path(:id => gossip.id), class: 'btn-grad' %>
+                            
+              <%= link_to 'Voir profil', user_path(gossip.user.id), class: 'btn-grad' %> <!-- Ici on va remplacer par le bouton edit-->
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>

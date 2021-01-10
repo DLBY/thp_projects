@@ -1,0 +1,17 @@
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"> 
+  <h1 class="text-center">Se connecter</h1>
+  <hr style="height:2px;border-width:0;color:gray;background-color:gray"> 
+
+  <%= form_tag url_for(action: 'create'), method: "post" do %>
+
+  <%= label_tag 'email ' %><br />
+  <%= text_field_tag 'email' %>
+  <br /> <br />
+
+  <%= label_tag 'Mot de passe ' %><br />
+  <%= password_field_tag 'password'%>
+  <br /> <br />
+
+  <%= submit_tag "Se connecter" %>
+
+  <% end %>

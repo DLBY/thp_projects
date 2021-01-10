@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TheGossipProject</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand text-warning " <%= link_to "The Gossip Project", root_path %></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link"<%= link_to "Accueil", root_path %></a>
+                <span class="sr-only"></span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"<%= link_to "Créer un gossip", new_gossip_path %></a>
+              </li>
+
+
+          <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Compte
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <% if current_user %>
+                <a class="dropdown-item"<%= link_to "Se déconnecter", session_path(session.id), method: :delete %></a>
+                <%else%>
+                <a class="dropdown-item"<%= link_to "Créer un compte", new_user_path %></a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item"<%= link_to "Se connecter", new_session_path %></a>
+                
+                <%end%>
+              </div>
+            </li>
+
+
+            
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Autre
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item"<%= link_to "Contact", contact_path %></a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item"<%= link_to "Présentation de l'équipe", team_path %></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+    <% if flash[:success] %>
+    <div class="alert alert-success"> <%=flash[:success]%></div>
+    <% end%>
+    <% if flash[:failure] %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert"> <%=flash[:failure]%></div>
+    <% end %>
+    
+    
+    </div>
+    <%= yield %>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

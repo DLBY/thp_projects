@@ -1,0 +1,41 @@
+<div class="container-fluid">
+<h1 class="text-center">Boîte de réception</h1>
+
+<hr>
+
+<%= button_to "Créer un Email", { action: "create" }, class:"btn btn-outline-secondary mb-2", remote:true %> 
+<!--https://apidock.com/rails/ActionView/Helpers/UrlHelper/button_to -->
+  <div class="row">
+    <div class="col-4">
+      <table class="table">
+      <thead class = "thead-dark">
+      </thead>
+      <tbody id="mail_list" class="list-group">
+      <p class = "list-group-item text-white bg-primary font-weight">Objet</p>
+      <% @emails.order(:created_at).each do |email| %>
+      <tr>
+      <%= render 'email', email: email %>
+      </tr>
+      <%end%>
+      </tbody>
+      </table>
+    </div>
+
+    <div class="col-8">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Contenu</th>
+          </tr>
+        </thead>
+        <tbody id="content">
+
+        </tbody>
+      </table>
+    </div>
+
+    
+
+    
+  </div>
+</div>

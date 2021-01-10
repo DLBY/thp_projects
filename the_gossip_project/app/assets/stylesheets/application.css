@@ -1,0 +1,38 @@
+form
+{
+width:50%;
+margin:auto;
+}
+
+.btn-grad {background-image: linear-gradient(to right, #16222A 0%, #3A6073  51%, #16222A  100%)}
+.btn-grad {
+
+   text-align: center;
+;
+   transition: 0.5s;
+   background-size: 200% auto; 
+   color: white;            
+   box-shadow: 0 0 1px #eee;
+   border-radius: 10px;
+   display: inline-block;
+   padding: 2px 15px 2px 15px
+  
+ }
+
+ .btn-grad:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }
+
+.index
+ {
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 10%, rgba(14,22,28,1) 31%, rgba(22,34,42,1) 47%, rgba(49,96,128,1) 80%);
+ }
+
+ .card
+ {
+  background:rgba(49,96,128,1);
+  box-shadow: 0px 2px 14px 3px rgba(0,0,0,0.32);
+ }

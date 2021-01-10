@@ -1,0 +1,30 @@
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron jumbotron-fluid border-bottom row align-items-start" id="jumbotron-hero">
+        <div class="container">
+          <h1 class="display-3 text-white">Eventbrite Like</h1>
+          <p class="lead text-white">Eventbrite Like est une plateforme mondiale en libre-service spécialisée dans les expériences en direct qui permet à chacun de créer, partager, trouver et participer à des événements qui nourrissent ses passions et enrichissent ses expériences.</p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">En savoir + </a></p>
+        </div>
+      </div>
+
+<div class="container">
+  <div class="card-group vgr-cards">
+  <% @event.each do |event| %>
+    <div class="card">
+      <div class="card-img-body">
+      <%if event.event_picture.attached?%>
+ <img class="card-img" <%= image_tag event.event_picture, alt: 'picture' %>
+<%else%>
+<img class="card-img" src="https://picsum.photos/id/<%= rand(1..99) %>/500/230" alt="Card image cap">
+<%end%>
+      
+      </div>
+      <div class="card-body">
+        <h4 class="card-title"><%= event.title%></h4>
+        <p class="card-text"><%= event.description %></p>
+        <a class="btn btn-outline-primary" <%= link_to "Détails", event_path(event)%></a>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

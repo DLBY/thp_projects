@@ -1,0 +1,13 @@
+ <hr style="height:2px;border-width:0;color:gray;background-color:gray"> 
+<h2 class="text-center">Profil utilisateur</h2>
+ <hr style="height:2px;border-width:0;color:gray;background-color:gray"> 
+
+  <p class="text-center"> 
+  Prénom: <%= @user.first_name %> <%= @user.last_name %><br/>
+  Nom:<%= @user.last_name %><br/>
+  Mail:<%= @user.email %><br/>
+  Age: <%= @user.age %><br/>
+  Ville :<%= link_to @user.city.name, city_path(@user.city.id) %>
+ <br/>
+  Bio: <%= @user.description %>
+  </p>

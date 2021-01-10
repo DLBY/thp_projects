@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+  
+    <div>
+      <p class="mt-4 h4"><strong>Objet : </strong><%= email.object %></p>
+      <hr>
+      <p><%= email.body %></p>
+    </div>
+  
+  </div>
+    <%= link_to "Supprimer mail", email_path(email.id), method: :delete, class:"btn btn-danger btn-sm", data: { confirm: "Supprimer ?" },remote:true %>
+    <%= link_to "Marquer comme non-lu", email_path(email.id), method: :PUT, id:"btn-read",class:"btn btn-info btn-sm",remote:true %>
+</div>
